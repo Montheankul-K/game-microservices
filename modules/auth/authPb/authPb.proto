@@ -2,11 +2,11 @@ syntax = "proto3";
 
 option go_package = "github.com/Montheankul-K/game-microservices";
 
-message CredentialSearchReq {
+message AccessTokenSearchReq {
   string accessToken = 1;
 }
 
-message CredentialSearchRes {
+message AccessTokenSearchRes {
   bool isValid = 1;
 }
 
@@ -17,6 +17,6 @@ message RolesCountRes {
 }
 
 service AuthGrpcService {
-  rpc CredentialSearch (CredentialSearchReq) returns (CredentialSearchRes);
+  rpc CredentialSearch (AccessTokenSearchReq) returns (AccessTokenSearchRes);
   rpc RolesCount (RolesCountReq) returns (RolesCountRes);
 }
