@@ -19,6 +19,21 @@ run-inventory:
 run-payment:
 	go run main.go ./env/dev/.env.payment
 
+migrate-auth:
+	go run main.go ./pkg/database/script/migration.go ./env/dev/.env.auth
+
+migrate-player:
+	go run main.go ./pkg/database/script/migration.go ./env/dev/.env.player
+
+migrate-item:
+	go run main.go ./pkg/database/script/migration.go ./env/dev/.env.item
+
+migrate-inventory:
+	go run main.go ./pkg/database/script/migration.go ./env/dev/.env.inventory
+
+migrate-payment:
+	go run main.go ./pkg/database/script/migration.go ./env/dev/.env.payment
+
 protogen-auth:
 	protoc --go_out=. --go_opt=paths=source_relative \
         --go-grpc_out=. --go-grpc_opt=paths=source_relative \

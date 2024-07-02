@@ -7,13 +7,13 @@ import (
 
 type (
 	Player struct {
-		Id         primitive.ObjectID `json:"id" bson:"id,omitempty"`
-		Email      string             `json:"email" bson:"email"`
-		Password   string             `json:"password" bson:"password"`
-		Username   string             `json:"username" bson:"username"`
-		CreatedAt  time.Time          `json:"created_at" bson:"created_at"`
-		UpdatedAt  time.Time          `json:"updated_at" bson:"updated_at"`
-		PlayerRole []Role             `bson:"player_role"`
+		Id          primitive.ObjectID `json:"id" bson:"id,omitempty"`
+		Email       string             `json:"email" bson:"email"`
+		Password    string             `json:"password" bson:"password"`
+		Username    string             `json:"username" bson:"username"`
+		CreatedAt   time.Time          `json:"created_at" bson:"created_at"`
+		UpdatedAt   time.Time          `json:"updated_at" bson:"updated_at"`
+		PlayerRoles []Role             `bson:"player_role"`
 	}
 
 	Role struct {
@@ -32,5 +32,11 @@ type (
 	SavingAccount struct {
 		PlayerId string  `json:"player_id" bson:"player_id"`
 		Balance  float64 `json:"balance" bson:"balance"`
+	}
+
+	Transaction struct {
+		PlayerId  string    `bson:"player_id"`
+		Amount    float64   `bson:"amount"`
+		CreatedAt time.Time `bson:"created_at"`
 	}
 )
